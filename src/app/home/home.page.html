@@ -12,15 +12,15 @@
 
   <ion-tabs>
     <ion-tab-bar slot="bottom">
-      <ion-tab-button tab="schedule" (click)="afficheListeHackathon()">
-        <ion-icon name="desktop-outline"></ion-icon>
-        <ion-label>Hackathon</ion-label>
-      </ion-tab-button>
-  
-      <ion-tab-button tab="speakers">
-        <ion-icon name="person-circle"></ion-icon>
-        <ion-label>Accueil</ion-label>
-      </ion-tab-button>
+
+        <ion-tab-button tab="schedule" (click)="MonClick()">
+          <ion-icon name="desktop-outline"></ion-icon>
+          <ion-label>Hackathon</ion-label>
+        </ion-tab-button>
+        <ion-tab-button tab="schedule" (click)="pageDesHackathons()">
+          <ion-icon name="newspaper-outline"></ion-icon>
+          <ion-label>Hackathon</ion-label>
+        </ion-tab-button>
     </ion-tab-bar>
   </ion-tabs>
 

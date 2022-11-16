@@ -8,9 +8,13 @@ import { Router } from '@angular/router';
 })
 export class HomePage {
 
-  constructor(private router: Router) {}
+  constructor(private router:Router) {}
 
-  afficheListeHackathon(){
-    this.router.navigate(['liste-hackathons']);
+  MonClick(){
+    this.router.navigate(['/hackathon'])
+  }
+
+  pageDesHackathons(){
+    this.router.navigate(['/liste-hackathons'])
   }
 }
