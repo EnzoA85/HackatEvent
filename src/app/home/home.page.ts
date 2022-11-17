@@ -10,10 +10,6 @@ export class HomePage {
 
   constructor(private router:Router) {}
 
-  MonClick(){
-    this.router.navigate(['/hackathon'])
-  }
-
   pageDesHackathons(){
     this.router.navigate(['/liste-hackathons'])
   }
