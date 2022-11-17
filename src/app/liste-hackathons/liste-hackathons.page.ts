@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
-import { Router } from '@angular/router';
+import { Router,NavigationExtras } from '@angular/router';
 
 @Component({
   selector: 'app-liste-hackathons',
@@ -10,8 +10,19 @@ import { Router } from '@angular/router';
 export class ListeHackathonsPage implements OnInit {
 
   ListeHackathon:any;
+
   constructor(private http: HttpClient,private router:Router) { 
     this.http.get("http://localhost:8001/api/hackathon").subscribe(results => {this.ListeHackathon=results})
+  }
+
+  detailhackathon(item:any)
+  {
+    let NavigationExtras: NavigationExtras ={
+      state : {
+        param1: item
+      }
+    };
+    this.router.navigate(['/hackathon'],NavigationExtras)
   }
 
   ngOnInit() {

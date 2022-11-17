@@ -1,10 +1,16 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>hackathon</ion-title>
+    <ion-title>Hackathon</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+
+  <ion-item>
+    <h3 style="margin-left: 10px;">{{item.theme}}</h3>
+    <p style="margin-left: 10px;">{{item.ville}} - {{formatdate(item.dateDebut.date)}} au {{formatdate(item.dateFin.date)}}</p>
+  </ion-item>
+
   <ion-tabs>
     <ion-tab-bar slot="bottom">  
       <ion-tab-button tab="speakers" (click)="MonClick2()">

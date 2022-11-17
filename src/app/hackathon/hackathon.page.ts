@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Router } from '@angular/router';
+import { Router,ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-hackathon',
@@ -9,15 +8,26 @@ import { Router } from '@angular/router';
 })
 export class HackathonPage implements OnInit {
 
-  ListeHackathon:any;
-  constructor(private http: HttpClient,private router:Router) { 
-    this.http.get("http://localhost:8001/api").subscribe(results => {this.ListeHackathon=results})
-  }
+  item:any;
+
+  constructor(private router: Router, private activeRoute : ActivatedRoute) {
+    this.activeRoute.queryParams.subscribe(params=>{
+      console.log(params)
+      let obj:any = this.router.getCurrentNavigation()?.extras.state;
+      this.item = obj.param1;
+    })
+   }
 
   ngOnInit() {
   }
 
   MonClick2(){
     this.router.navigate(['/home'])
+  }
+
+  formatdate(datein:any){
+    var date=new Date(datein);
+    var retour = date.getDate()+"/"+(date.getMonth()+1) +"/"+ date.getFullYear();
+    return retour;
   }
 }
