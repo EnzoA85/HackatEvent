@@ -6,7 +6,7 @@
 
 <ion-content>
   <ion-item>
-    <ion-searchbar show-clear-button="focus" animated="true" placeholder="Rechercher"></ion-searchbar>
+    <ion-searchbar [debounce]="500" (ionChange)="handleChange($event)" show-clear-button="focus" animated="true" placeholder="Rechercher"></ion-searchbar>
   </ion-item>
   <ion-item *ngFor="let item of ListeHackathon" (click)="detailhackathon(item)">
     <ion-avatar>

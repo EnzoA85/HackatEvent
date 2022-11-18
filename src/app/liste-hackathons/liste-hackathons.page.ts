@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
 import { Router,NavigationExtras } from '@angular/router';
+import { filter, from } from 'rxjs';
 
 @Component({
   selector: 'app-liste-hackathons',
@@ -10,15 +11,21 @@ import { Router,NavigationExtras } from '@angular/router';
 export class ListeHackathonsPage implements OnInit {
 
   ListeHackathon:any;
+  searchBar:any;
 
   constructor(private http: HttpClient,private router:Router) { 
     this.http.get("http://localhost:8001/api/hackathon").subscribe(results => {this.ListeHackathon=results})
   }
 
-  /*handleChange(event:any) {
-    const query = event.target.value.toLowerCase();
-    this.results = this.data.filter(d => this.d.toLowerCase().indexOf(query));
-  }*/
+  handleChange(event:any) {
+    const query = event.target.value.toLowerCase()
+    let results = from([this.ListeHackathon]);
+    results.pipe(filter(d => d.toLowerCase().indexOf(query))).subscribe(d => this.searchBar.push(d));
+
+
+    /*const query = event.target.value.toLowerCase();
+    this.results = this.data.filter(d => this.d.toLowerCase().indexOf(query));*/
+  }
 
   detailhackathon(item:any)
   {
