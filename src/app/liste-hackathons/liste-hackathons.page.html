@@ -1,28 +1,28 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Les hackathons</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content>
-
-    <ion-item *ngFor="let item of ListeHackathon" (click)="detailhackathon(item)">
-      <ion-avatar>
-        <img alt="Silhouette of a person's head" src="{{item.image}}" style="--border-radius: 4px;" />
-      </ion-avatar>
-      <ion-label>
-        <h3 style="margin-left: 10px;">{{item.theme}}</h3>
-        <p style="margin-left: 10px;">{{item.ville}} - {{formatdate(item.dateDebut.date)}} au {{formatdate(item.dateFin.date)}}</p>
-      </ion-label>
-    </ion-item>
-
-  <ion-tabs>
-    <ion-tab-bar slot="bottom">  
-      <ion-tab-button tab="speakers" (click)="MonClick2()">
-        <ion-icon name="person-circle"></ion-icon>
-        <ion-label>Accueil</ion-label>
-      </ion-tab-button>
-    </ion-tab-bar>
-  </ion-tabs>
-
-</ion-content>
+  <ion-header [translucent]="true">
+    <ion-toolbar>
+      <ion-title>Les hackathons</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content>
+  
+      <ion-item *ngFor="let item of ListeHackathon" (click)="detailhackathon(item)">
+        <ion-avatar>
+          <img alt="Silhouette of a person's head" src="{{item.image}}" style="--border-radius: 4px;" />
+        </ion-avatar>
+        <ion-label>
+          <h3 style="margin-left: 10px;">{{item.theme}}</h3>
+          <p style="margin-left: 10px;">{{item.ville}} - {{formatdate(item.dateDebut.date)}} au {{formatdate(item.dateFin.date)}}</p>
+        </ion-label>
+      </ion-item>
+  
+    <ion-tabs>
+      <ion-tab-bar slot="bottom">  
+        <ion-tab-button tab="speakers" (click)="MonClick2()">
+          <ion-icon name="person-circle"></ion-icon>
+          <ion-label>Accueil</ion-label>
+        </ion-tab-button>
+      </ion-tab-bar>
+    </ion-tabs>
+  
+  </ion-content>

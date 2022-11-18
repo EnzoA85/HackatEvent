@@ -30,4 +30,11 @@ export class HackathonPage implements OnInit {
     var retour = date.getDate()+"/"+(date.getMonth()+1) +"/"+ date.getFullYear();
     return retour;
   }
+
+  formatHours(hoursin:any)
+  {
+    var hours = new Date(hoursin);
+    var retour = hours.getHours()+":"+hours.getMinutes()+hours.getMinutes();
+    return retour;
+  }
 }

@@ -1,15 +1,29 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Hackathon</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="liste-hackathons"></ion-back-button>
+      <ion-title>Hackathon</ion-title>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
 
-  <ion-item>
-    <h3 style="margin-left: 10px;">{{item.theme}}</h3>
-    <p style="margin-left: 10px;">{{item.ville}} - {{formatdate(item.dateDebut.date)}} au {{formatdate(item.dateFin.date)}}</p>
-  </ion-item>
+  <h1>{{item.theme}}</h1>
+  <ion-img src="{{item.image}}"></ion-img>
+  <div style="margin: 10px;">
+    <h3>Informations :</h3>
+    <p style="text-align: center;">
+      Du {{formatdate(item.dateDebut.date)}} {{formatHours(item.heureDebut.date)}} <br/>
+      Au {{formatdate(item.dateFin.date)}} {{formatHours(item.heureFin.date)}}<br/><br/>
+      {{item.lieu}} - {{item.rue}} {{item.ville}}, {{item.codePostal}}<br/><br/>
+      {{item.nbPlaces}} places
+    </p>
+    <h3>Description</h3>
+      <p style="text-align: justify; margin:10px;">
+      {{item.description}}
+    </p>
+  </div>
 
   <ion-tabs>
     <ion-tab-bar slot="bottom">  
