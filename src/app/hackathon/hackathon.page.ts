@@ -12,7 +12,6 @@ export class HackathonPage implements OnInit {
 
   constructor(private router: Router, private activeRoute : ActivatedRoute) {
     this.activeRoute.queryParams.subscribe(params=>{
-      console.log(params)
       let obj:any = this.router.getCurrentNavigation()?.extras.state;
       this.item = obj.param1;
     })
