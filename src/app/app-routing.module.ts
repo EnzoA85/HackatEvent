@@ -19,6 +19,10 @@ const routes: Routes = [
     path: 'liste-hackathons',
     loadChildren: () => import('./liste-hackathons/liste-hackathons.module').then( m => m.ListeHackathonsPageModule)
   },
+  {
+    path: 'inscription-form',
+    loadChildren: () => import('./inscription-form/inscription-form.module').then( m => m.InscriptionFormPageModule)
+  },
 ];
 
 @NgModule({
