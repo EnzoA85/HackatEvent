@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router,ActivatedRoute } from '@angular/router';
+import { HttpClient} from '@angular/common/http';
+import { Router,NavigationExtras,ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-hackathon',
@@ -8,21 +9,22 @@ import { Router,ActivatedRoute } from '@angular/router';
 })
 export class HackathonPage implements OnInit {
 
-  item:any;
+  hackathon:any;
+  ListeAteliers:any;
 
-  constructor(private router: Router, private activeRoute : ActivatedRoute) {
+  constructor(private router: Router, private activeRoute : ActivatedRoute, private http: HttpClient) {
     this.activeRoute.queryParams.subscribe(params=>{
       let obj:any = this.router.getCurrentNavigation()?.extras.state;
-      this.item = obj.param1;
+      this.hackathon = obj.param1; 
+
+      //récupération des ateliers dans ListeAteliers avec hackathon.id
+      this.http.get("http://localhost:8001/api/ateliers/"+this.hackathon.id).subscribe(results => {this.ListeAteliers=results})
     })
    }
 
   ngOnInit() {
   }
 
-  MonClick2(){
-    this.router.navigate(['/home'])
-  }
 
   formatdate(datein:any){
     var date=new Date(datein);
@@ -36,4 +38,6 @@ export class HackathonPage implements OnInit {
     var retour = hours.getHours()+":"+hours.getMinutes()+hours.getMinutes();
     return retour;
   }
+
+
 }

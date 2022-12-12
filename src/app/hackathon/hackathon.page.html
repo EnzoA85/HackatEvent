@@ -9,29 +9,26 @@
 
 <ion-content>
 
-  <h1>{{item.theme}}</h1>
-  <ion-img src="{{item.image}}"></ion-img>
+  <h1>{{hackathon.theme}}</h1>
+  <ion-img src="{{hackathon.image}}"></ion-img>
   <div style="margin: 10px;">
     <h3>Informations :</h3>
     <p style="text-align: center;">
-      Du {{formatdate(item.dateDebut.date)}} {{formatHours(item.heureDebut.date)}} <br/>
-      Au {{formatdate(item.dateFin.date)}} {{formatHours(item.heureFin.date)}}<br/><br/>
-      {{item.lieu}} - {{item.rue}} {{item.ville}}, {{item.codePostal}}<br/><br/>
-      {{item.nbPlaces}} places
+      Du {{formatdate(hackathon.dateDebut.date)}} {{formatHours(hackathon.heureDebut.date)}} <br/>
+      Au {{formatdate(hackathon.dateFin.date)}} {{formatHours(hackathon.heureFin.date)}}<br/><br/>
+      {{hackathon.lieu}} - {{hackathon.rue}} {{hackathon.ville}}, {{hackathon.codePostal}}<br/><br/>
+      {{hackathon.nbPlaces}} places
     </p>
     <h3>Description</h3>
       <p style="text-align: justify; margin:10px;">
-      {{item.description}}
+      {{hackathon.description}}
     </p>
+    <h3>Liste des ateliers</h3> (Selectionnez pour s'inscrire)
+    <ion-item *ngFor="let atelier of ListeAteliers">
+      <ion-label>
+        <h3 style="margin-left: 10px;">- {{atelier.libelle}}</h3>
+      </ion-label>
+    </ion-item>
+  
   </div>
-
-  <ion-tabs>
-    <ion-tab-bar slot="bottom">  
-      <ion-tab-button tab="speakers" (click)="MonClick2()">
-        <ion-icon name="person-circle"></ion-icon>
-        <ion-label>Accueil</ion-label>
-      </ion-tab-button>
-    </ion-tab-bar>
-  </ion-tabs>
-
 </ion-content>
