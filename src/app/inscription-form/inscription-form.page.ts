@@ -32,7 +32,7 @@ export class InscriptionFormPage implements OnInit {
     if (!this.myForm.valid) {
       console.log('All fields are required.')
     } else {
-      this.http.post("http://127.0.0.1:8001/api/postParticipant", this.myForm.value, {headers: new HttpHeaders({ 'Content-Type': 'application/json' })})
+      this.http.post("http://127.0.0.1:8001/api/postParticipant", this.myForm.value, { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) } )
       .subscribe(data => {
         console.log(data);
        }, error => {
