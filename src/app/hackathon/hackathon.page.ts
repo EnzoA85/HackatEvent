@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
 import { Router,NavigationExtras,ActivatedRoute } from '@angular/router';
+import { AnyARecord } from 'dns';
 
 @Component({
   selector: 'app-hackathon',
@@ -11,6 +12,7 @@ export class HackathonPage implements OnInit {
 
   hackathon:any;
   ListeAteliers:any;
+  atelier:any;
 
   constructor(private router: Router, private activeRoute : ActivatedRoute, private http: HttpClient) {
     this.activeRoute.queryParams.subscribe(params=>{
@@ -37,6 +39,15 @@ export class HackathonPage implements OnInit {
     var hours = new Date(hoursin);
     var retour = hours.getHours()+":"+hours.getMinutes()+hours.getMinutes();
     return retour;
+  }
+
+  Inscription(atelier: any){
+    let NavigationExtras: NavigationExtras ={
+      state : {
+        param1: atelier
+      }
+    };
+    this.router.navigate(['/inscription-form'],NavigationExtras)
   }
 
 

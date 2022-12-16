@@ -24,7 +24,7 @@
       {{hackathon.description}}
     </p>
     <h3>Liste des ateliers</h3> (Selectionnez pour s'inscrire)
-    <ion-item *ngFor="let atelier of ListeAteliers">
+    <ion-item *ngFor="let atelier of ListeAteliers" (click)="Inscription(atelier)">
       <ion-label>
         <h3 style="margin-left: 10px;">- {{atelier.libelle}}</h3>
       </ion-label>

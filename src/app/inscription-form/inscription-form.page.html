@@ -5,18 +5,19 @@
 </ion-header>
 
 <ion-content>
-  <form [formGroup]=”myForm” (ngSubmit)=”onSubmit()” novalidate>
+  <form [formGroup]="myForm" (ngSubmit)="onSubmit()" novalidate>
     <ion-item lines="nom">
-      <ion-label position=”floating”>Nom</ion-label>
-      <ion-input formControlName=”nom” type=”text”></ion-input>
+      <ion-label position=”floating”>Nom :</ion-label>
+      <ion-input formControlName="nom" type=”text”></ion-input>
     </ion-item>
     <ion-item lines="prenom">
-      <ion-label position=”floating”>Prenom</ion-label>
+      <ion-label position=”floating”>Prenom :</ion-label>
       <ion-input formControlName="prenom" type=”text”></ion-input>
     </ion-item>
     <ion-item lines="mail">
-      <ion-label position=”floating”>Mail</ion-label>
-      <ion-input formControlName="Mail" type=”email”></ion-input>
+      <ion-label position=”floating”>Mail :</ion-label>
+      <ion-input formControlName="email" type=”email”></ion-input>
     </ion-item>
+    <ion-button type="submit" expand="block">S'inscrire</ion-button>
   </form>
 </ion-content>
