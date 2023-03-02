@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
 import { Router,NavigationExtras,ActivatedRoute } from '@angular/router';
-import { AnyARecord } from 'dns';
 
 @Component({
   selector: 'app-hackathon',
